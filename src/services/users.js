@@ -4,12 +4,12 @@ const UsersService = {
   register: (params) => Api.post("/users/register", params),
   login: async (params) => {
     try {
-      const response = await Api.post("/users/login", params);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      localStorage.setItem("token", response.data.token);
+      const response = await Api.post('/users/login', params);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      localStorage.setItem('token', response.data.token);
       return response.data.user;
     } catch (error) {
-      throw new Error("Login failed");
+      throw new Error('Login failed');
     }
   },
   logout: () => {
