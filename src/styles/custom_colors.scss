@@ -1,0 +1,17 @@
+$custom-purple: #694ED8 !default;
+$custom-purple-darker: #6600CC !default;
+$custom-grey: #f3f3f3;
+
+.has-text-custom-purple {
+    color: $custom-purple !important;
+}
+
+.button.custom-purple-outlined {
+    border-color: white !important;
+    color: $custom-purple !important;
+
+    &:hover {
+        background-color: $custom-purple !important;
+        color: white !important;
+    }
+}

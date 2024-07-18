@@ -1,0 +1,39 @@
+@import './custom_colors.scss';
+
+.notes {
+    height: calc(100% - 70px);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+.bm-menu{
+    background: white;
+    padding-top: 10px;
+}
+
+.list-item.is-active {
+    background-color: #e4e4e4;
+}
+
+.button_More {
+  background-color: white !important;
+  color: $custom-purple !important;
+  border-color: $custom-purple !important;
+}
+
+.button_More:hover {
+  background-color: $custom-purple !important;
+  border-color: $custom-purple  !important;
+  color: white !important;
+}
+
+.notes-editor {
+  padding: 0px !important;
+  width: 100% !important;
+  height: calc(100% - 43px);
+
+  .quill {
+    height: 100%;
+  }
+}

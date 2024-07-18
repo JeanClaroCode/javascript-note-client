@@ -1,0 +1,19 @@
+@import "./custom_colors";
+
+.users {
+  background-color: $custom-purple !important;
+  min-height: calc(100vh - 70px);
+}
+
+.users {
+  padding-top: 20px !important;
+
+  .card-content {
+    padding: 40px;
+  }
+  .users-editt {
+    .title {
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@import './custom_colors.scss';
+
+.home {
+    background-color: $custom-purple !important;
+    min-height: calc(100vh - 70px);
+}

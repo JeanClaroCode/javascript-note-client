@@ -1,0 +1,44 @@
+@import './custom_colors.scss';
+nav.navbar {
+    height: 70px;
+    border-bottom: 1px solid black;
+
+   .navbar-brand {
+        img {
+            height: 40px;
+            margin-top: 15px;
+        }
+    }
+
+   .register-button {
+        color: $custom-purple;
+        border-color: transparent;
+
+        &:hover {
+            background-color: transparent;
+            color: darken($custom-purple, 10%);
+        }
+    }
+
+   .login-button {
+        background-color: transparent;
+        color: $custom-purple;
+        border: 1px solid $custom-purple;
+
+        &:hover {
+            background-color: $custom-purple;
+            color: white;
+        }
+    }
+
+}
+
+.navbar-logged {
+    background-color: $custom-purple; 
+    .navbar-menu{
+        background-color: $custom-purple;
+    }
+    &  .navbar-burger {
+        color: white !important;
+    }
+}

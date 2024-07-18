@@ -1,0 +1,7 @@
+@import './custom_colors.scss';
+
+.auth {
+    background-color: $custom-purple !important;
+    min-height: calc(100vh - 70px);
+}
+
