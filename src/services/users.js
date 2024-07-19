@@ -9,6 +9,7 @@ const UsersService = {
       localStorage.setItem('token', response.data.token);
       return response.data.user;
     } catch (error) {
+      console.error('Login failed', error.response ? error.response.data : error.message);
       throw new Error('Login failed');
     }
   },
