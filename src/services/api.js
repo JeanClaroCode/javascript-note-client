@@ -5,7 +5,7 @@ const Api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  //withCredentials: true // Se você está lidando com cookies ou headers personalizados
+  withCredentials: true // Se você está lidando com cookies ou headers personalizados
 });
 
 export default Api;
