@@ -10,10 +10,10 @@ function LoginForm() {
     const [redirectToNotes, setRedirectToNotes] = useState(false);
     const [error, setError] = useState(false);
 
-    const HandleSubmit = async(event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         try {
-            const user = await UsersService.login({email: email, password: password});
+            await UsersService.login({email: email, password: password});
             setRedirectToNotes(true)
         } catch (error) {
             setError(true)
@@ -31,7 +31,7 @@ function LoginForm() {
     return(
         <Fragment>
             <Columns centered>
-                <form onSubmit={HandleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <Columns.Column size={12}>
                         <Form.Field>
                             <Form.Label size="small">Email: </Form.Label>
@@ -49,10 +49,10 @@ function LoginForm() {
                             <Form.Control>
                                 <Columns breakpoint="mobile" centered>
                                     <Columns.Column size="half">
-                                        <a className="button is-white has-text-custom-purple" outlined onClick={e => setRedirectToRegister(true)}>Register or</a>
+                                        <a className="button is-white has-text-custom-purple" onClick={e => setRedirectToRegister(true)}>Register or</a>
                                     </Columns.Column>
                                     <Columns.Column size="half">
-                                        <Button className="custom-purple-outlined" outlined>Login</Button>
+                                        <Button className="custom-purple-outlined">Login</Button>
                                     </Columns.Column>
                                 </Columns>
                             </Form.Control>
