@@ -1,0 +1,9 @@
+.has-text-custom-purple {
+  color: #694ED8 !important; }
+
+.button.custom-purple-outlined {
+  border-color: white !important;
+  color: #694ED8 !important; }
+  .button.custom-purple-outlined:hover {
+    background-color: #694ED8 !important;
+    color: white !important; }

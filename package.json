@@ -29,13 +29,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sass:compile": "node-sass --no-cache src/App.scss public/output.css",
-    "heroku-postbuild": "npm run build"
-  },
+  "start": "react-scripts start",
+  "build": "npm run sass:compile && react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "sass:compile": "node-sass --no-cache src/App.scss public/output.css"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
