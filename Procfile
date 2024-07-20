@@ -1,1 +1,1 @@
-web: npx heroku-buildpack-static
+web: npm start
