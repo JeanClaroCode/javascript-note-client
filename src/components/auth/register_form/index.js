@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Button, Form, Columns, Section, Help } from "react-bulma-components";
+import { Button, Form, Columns} from "react-bulma-components";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
@@ -13,7 +13,7 @@ function RegisterForm() {
     const HandleSubmit = async(event) => {
         event.preventDefault();
         try {
-            const user = await UsersService.register({name: name, email: email, password: password});
+            await UsersService.register({name: name, email: email, password: password});
             setRedirectToLogin(true)
         } catch (error) {
             setError(true)
