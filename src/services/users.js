@@ -50,7 +50,7 @@ const UsersService = {
     let user = localStorage.getItem("user")
     const token = localStorage.getItem("token");
     const teste = await Api.delete("/users", {
-      headers: { "x-access-token": localStorage.getItem("token") },
+      headers: { "x-access-token": token },
     })
     console.log(`teste: ${teste}`);
     localStorage.removeItem(user);
