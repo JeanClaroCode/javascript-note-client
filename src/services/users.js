@@ -48,15 +48,12 @@ const UsersService = {
   },
   delete: async () => {
     try{
-    let user = localStorage.getItem("user")
-    console.log( `teste user: ${user}`)
     let token = localStorage.getItem("token");
-    console.log( `teste token: ${token}`)
     await Api.delete("/users", {
       headers: { "x-access-token": token },
     });
-    localStorage.removeItem(user);
-    localStorage.removeItem(token);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   }catch(error){
     console.error('Delete failed', error.response ? error.response.data : error.message);
     throw new Error('Delete failed');
