@@ -52,10 +52,9 @@ const UsersService = {
     console.log( `teste user: ${user}`)
     let token = localStorage.getItem("token");
     console.log( `teste token: ${token}`)
-    const teste = await Api.delete("/users", {
+    await Api.delete("/users", {
       headers: { "x-access-token": token },
-    })
-    console.log(`teste: ${teste}`);
+    });
     localStorage.removeItem(user, null);
     localStorage.removeItem(token, null);
   }catch(error){
