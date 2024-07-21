@@ -22,8 +22,8 @@ const UsersService = {
   },
   
   logout: () => {
-    localStorage.removeItem("user", null);
-    localStorage.removeItem("token", null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   },
   update: async (params) => {
     const response = await Api.put("/users", params, {
