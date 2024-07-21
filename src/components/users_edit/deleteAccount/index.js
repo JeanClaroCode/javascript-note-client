@@ -8,9 +8,14 @@ function UsersDelete() {
 
   const deleteUser = async () => {
     if (window.confirm("Are you sure you wish to delete this account?")) {
-      console.log("apertou")
-      await UsersService.delete();
-      setRedirectToHome(true);
+      console.log("apertou");
+
+      try {
+        await UsersService.delete();
+        setRedirectToHome(true);
+      } catch (error) {
+        alert('Erro ao excluir a conta. Tente novamente mais tarde.');
+      }
     }
   };
 
