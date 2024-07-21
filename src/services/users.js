@@ -47,6 +47,7 @@ const UsersService = {
   }
   },
   delete: async () => {
+    try{
     let user = localStorage.getItem("user")
     let token = localStorage.getItem("token");
     const teste = await Api.delete("/users", {
@@ -55,7 +56,10 @@ const UsersService = {
     console.log(`teste: ${teste}`);
     localStorage.removeItem(user, null);
     localStorage.removeItem(token, null);
-  },
+  }catch(error){
+    console.error('Delete failed', error.response ? error.response.data : error.message);
+    throw new Error('Delete failed');
+  }},
 };
 
 export default UsersService;
