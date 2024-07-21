@@ -74,7 +74,6 @@ const Notes = (props) => {
         <div className="notes" id="notes">
             <Menu
             className="Notes-menu"
-            pageWrapId={"notes-editor"}
             isOpen={props.isOpen}
             onStateChange={(state) => {
             props.setIsOpen(state.isOpen);
@@ -98,7 +97,7 @@ const Notes = (props) => {
                     />
                 </Menu>
 
-                <Columns.Column size={12} className="notes-editor" id="notes-editor">
+                <Columns.Column size={12}>
                 <Editor note={current_note} updateNote={updateNote} />
                 </Columns.Column>
         </div>
