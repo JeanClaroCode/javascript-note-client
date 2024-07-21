@@ -13,7 +13,8 @@ function LoginForm() {
     const handleSubmit = async(event) => {
         event.preventDefault();
         try {
-            await UsersService.login({email: email, password: password});
+            const user = await UsersService.login({email: email, password: password});
+            console.log('User: ', user)
             setRedirectToNotes(true)
         } catch (error) {
             setError(true)
