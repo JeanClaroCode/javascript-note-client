@@ -55,13 +55,6 @@ function HeaderLoggedEdit(props) {
       </Navbar.Brand>
 
       <Navbar.Menu className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
-        <Navbar.Container renderAs="div" className="navbar-item navbar-start" align="start">
-          <Navbar.Item renderAs="div">
-          <Button className="open-button" color="white" outlined onClick={() => props.setIsOpen(true)}>
-              <FontAwesomeIcon icon={faList}/>
-          </Button>
-          </Navbar.Item>
-        </Navbar.Container>
         <Navbar.Container renderAs="div" align="right">
           <Navbar.Item renderAs="div">
             <Dropdown color="" label={`${JSON.parse(user)['name']} ▼`}>
