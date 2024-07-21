@@ -53,8 +53,8 @@ const UsersService = {
       headers: { "x-access-token": token },
     })
     console.log(`teste: ${teste}`);
-    localStorage.removeItem(user);
-    localStorage.removeItem(token);
+    localStorage.removeItem(user, null);
+    localStorage.removeItem(token, null);
   },
 };
 
