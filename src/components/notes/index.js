@@ -1,7 +1,7 @@
 import React, {useState, Fragment, useEffect} from 'react';
 import '../../styles/notes.scss'
 import {push as Menu} from 'react-burger-menu'
-import { Columns } from 'react-bulma-components';
+import { Columns} from 'react-bulma-components';
 import NotesService from '../../services/notes';
 import ListNotes from './list/index';
 import Editor from './editor/index';
@@ -43,18 +43,15 @@ const Notes = (props) => {
         fetchNotes();
       };
 
-      const updateNote = async (oldNote, params) => {
-        try {
-            const updatedNote = await NotesService.update(oldNote._id, params);
-            const index = notes.indexOf(oldNote);
-            const newNotes = notes;
-            newNotes[index] = updatedNote.data;
-            setNotes(newNotes);
-            setCurrentNote(updatedNote.data);
-        } catch (error) {
-            console.error('Erro ao atualizar nota:', error);
-        }
-    }
+      const updateNote = async (oldNote, params) => { 
+        const updatedNote = await NotesService.update(oldNote._id, params);
+        const index = notes.indexOf(oldNote);
+        const newNotes = notes;
+        newNotes[index] = updatedNote.data;
+        setNotes(newNotes)
+        setCurrentNote(updatedNote.data);
+      }
+
       const searchNotes = async (query) => {
         const response = await NotesService.search(query);
         setNotes(response.data);
@@ -71,9 +68,10 @@ const Notes = (props) => {
 
     return(
         <Fragment>
-        <div className="notes">
+        <div className="notes" id="notes">
             <Menu
             className="Notes-menu"
+            pageWrapId={"notes-editor"}
             isOpen={props.isOpen}
             onStateChange={(state) => {
             props.setIsOpen(state.isOpen);
@@ -97,7 +95,7 @@ const Notes = (props) => {
                     />
                 </Menu>
 
-                <Columns.Column size={12}>
+                <Columns.Column size={12} className="notes-editor" id="notes-editor">
                 <Editor note={current_note} updateNote={updateNote} />
                 </Columns.Column>
         </div>

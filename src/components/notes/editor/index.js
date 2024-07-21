@@ -14,7 +14,7 @@ function Editor(props) {
 
   const handleChange = (content, delta, source) => {
     clearTimeout(timer);
-    if (source == "user") {
+    if (source === "user") {
       setCurrentContent(content);
       setTimer(setTimeout(() => updateNote(content), 2000));
     }
