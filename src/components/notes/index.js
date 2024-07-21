@@ -1,7 +1,7 @@
 import React, {useState, Fragment, useEffect} from 'react';
 import '../../styles/notes.scss'
 import {push as Menu} from 'react-burger-menu'
-import { Columns, Button } from 'react-bulma-components';
+import { Columns } from 'react-bulma-components';
 import NotesService from '../../services/notes';
 import ListNotes from './list/index';
 import Editor from './editor/index';
@@ -43,15 +43,18 @@ const Notes = (props) => {
         fetchNotes();
       };
 
-      const updateNote = async (oldNote, params) => { 
-        const updatedNote = await NotesService.update(oldNote._id, params);
-        const index = notes.indexOf(oldNote);
-        const newNotes = notes;
-        newNotes[index] = updatedNote.data;
-        setNotes(newNotes)
-        setCurrentNote(updatedNote.data);
-      }
-
+      const updateNote = async (oldNote, params) => {
+        try {
+            const updatedNote = await NotesService.update(oldNote._id, params);
+            const index = notes.indexOf(oldNote);
+            const newNotes = notes;
+            newNotes[index] = updatedNote.data;
+            setNotes(newNotes);
+            setCurrentNote(updatedNote.data);
+        } catch (error) {
+            console.error('Erro ao atualizar nota:', error);
+        }
+    }
       const searchNotes = async (query) => {
         const response = await NotesService.search(query);
         setNotes(response.data);
