@@ -13,7 +13,7 @@ function UsersDelete() {
     }
   };
 
-  if (redirectToHome == true) return <Navigate to={{ pathname: "/" }} />;
+  if (redirectToHome === true) return <Navigate to={{ pathname: "/" }} />;
 
   return (
     <Button color="danger" onClick={() => deleteUser()}>

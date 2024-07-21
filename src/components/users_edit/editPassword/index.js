@@ -10,7 +10,7 @@ function UsersEditFormPassword() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    if (password === password_confirmation) {
+    if (password == password_confirmation) {
       try {
         await UsersService.updatePassword({ password: password });
         setStatus("success");
@@ -61,13 +61,13 @@ function UsersEditFormPassword() {
             </Columns>
           </Form.Control>
         </Form.Field>
-        {status === "error_update" && (
+        {status == "error_update" && (
           <Form.Help color="danger">Problem in password update</Form.Help>
         )}
-        {status === "error_confirmation_password" && (
+        {status == "error_confirmation_password" && (
           <Form.Help color="danger">Password don't match</Form.Help>
         )}
-        {status === "success" && (
+        {status == "success" && (
           <Form.Help color="primary">Updated with success</Form.Help>
         )}
       </form>

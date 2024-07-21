@@ -50,8 +50,8 @@ const UsersService = {
     await Api.delete("/users", {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    localStorage.removeItem("user", null);
-    localStorage.removeItem("token", null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   },
 };
 
