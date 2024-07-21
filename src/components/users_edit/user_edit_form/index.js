@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Button, Field, Control, Input, Column, Heading, Help, Label, Form, Columns } from "react-bulma-components"
+import { Button, Form, Columns } from "react-bulma-components"
 import UsersService from "../../../services/users";
 
 function UsersEditForm() {
@@ -67,8 +67,8 @@ function UsersEditForm() {
             </Columns>
           </Form.Control>
         </Form.Field>
-        {status == "error" && <Form.Help color="danger">Problem in update</Form.Help>}
-        {status == "success" && (
+        {status === "error" && <Form.Help color="danger">Problem in update</Form.Help>}
+        {status === "success" && (
           <Form.Help color="primary">Updated with success</Form.Help>
         )}
       </form>
