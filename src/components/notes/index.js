@@ -71,7 +71,7 @@ const Notes = (props) => {
 
     return(
         <Fragment>
-        <div className="notes" id="notes">
+        <div className="notes">
             <Menu
             className="Notes-menu"
             isOpen={props.isOpen}
