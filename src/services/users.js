@@ -31,6 +31,7 @@ const UsersService = {
     });
     console.log(`tst: ${response}`)
     localStorage.setItem("user", JSON.stringify(response.data.user));
+    localStorage.setItem('token', response.data.token);
     
   },
   updatePassword: async (params) => {
