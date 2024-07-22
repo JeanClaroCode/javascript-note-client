@@ -29,7 +29,13 @@ const UsersService = {
     const response = await Api.put("/users", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    localStorage.setItem("user", JSON.stringify(response.data));
+    const newUser = response.data
+    const newToken = response.data && response.data.token
+    if(newUser){
+    localStorage.setItem("user", JSON.stringify(newUser));}
+    if(newToken){
+      localStorage.setItem("token", newToken)
+    }
   },
   updatePassword: async (params) => {
     const token = localStorage.getItem("token");
