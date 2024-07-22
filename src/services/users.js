@@ -32,7 +32,7 @@ const UsersService = {
       });
       console.log('User update response:', response.data); // Log para depuração
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      localStorage.setItem("token", response.data.token); // Atualiza o token
+      //localStorage.setItem("token", response.data.token); // Atualiza o token
     } catch (error) {
       console.error('Update failed', error.response ? error.response.data : error.message);
       throw new Error('Update failed');
