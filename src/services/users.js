@@ -33,18 +33,22 @@ const UsersService = {
   },
   updatePassword: async (params) => {
     const token = localStorage.getItem("token");
-  if (!token) {
-    throw new Error('No token found');
-  }
-
-  try {
-    await Api.put("/users/password", params, {
-      headers: { "x-access-token": localStorage.getItem("token") },
-    });
-  } catch (error) {
-    console.error('Update password failed', error.response ? error.response.data : error.message);
-    throw new Error('Update password failed');
-  }
+    if (!token) {
+      throw new Error('No token found');
+    }
+  
+    try {
+      const response = await Api.put("/users/password", params, {
+        headers: { "x-access-token": token },
+      });
+      const newToken = response.data && response.data.token;
+      if (newToken) {
+        localStorage.setItem("token", newToken);
+      }
+    } catch (error) {
+      console.error('Update password failed', error.response ? error.response.data : error.message);
+      throw new Error('Update password failed');
+    }
   },
   delete: async () => {
     let token = localStorage.getItem("token");
