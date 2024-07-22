@@ -22,14 +22,16 @@ const UsersService = {
   },
   
   logout: () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    localStorage.removeItem("user", null);
+    localStorage.removeItem("token", null);
   },
   update: async (params) => {
     const response = await Api.put("/users", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
+    console.log(`tst: ${response}`)
     localStorage.setItem("user", JSON.stringify(response.data));
+    
   },
   updatePassword: async (params) => {
     const token = localStorage.getItem("token");
