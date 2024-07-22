@@ -41,7 +41,7 @@ const UsersService = {
 
   try {
     await Api.put("/users/password", params, {
-      headers: { "x-access-token": localStorage.getItem("token") },
+      headers: { "x-access-token": token },
     });
   } catch (error) {
     console.error('Update password failed', error.response ? error.response.data : error.message);
