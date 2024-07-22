@@ -29,7 +29,7 @@ const UsersService = {
     const response = await Api.put("/users", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    console.log(`tst: ${response}`)
+    console.log(`tst: ${response.data.user}`)
     localStorage.setItem("user", JSON.stringify(response.data.user));
     localStorage.setItem('token', response.data.token);
     
@@ -41,10 +41,9 @@ const UsersService = {
   }
 
   try {
-    const response = await Api.put("/users/password", params, {
+    await Api.put("/users/password", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    localStorage.setItem("token", response.data.token);
   } catch (error) {
     console.error('Update password failed', error.response ? error.response.data : error.message);
     throw new Error('Update password failed');
