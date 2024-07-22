@@ -17,6 +17,16 @@ function UsersEditForm() {
     initializeUser();
   }, []);
 
+  useEffect(() => {
+    let timer;
+    if (status) {
+      timer = setTimeout(() => {
+        setStatus(null); // Clear status after 3 seconds
+      }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    return () => clearTimeout(timer); // Cleanup timer on component unmount
+  }, [status]);
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
