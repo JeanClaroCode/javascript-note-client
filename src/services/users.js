@@ -30,7 +30,7 @@ const UsersService = {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
     console.log(`tst: ${response}`)
-    localStorage.setItem("user", JSON.stringify(response.data));
+    localStorage.setItem("user", JSON.stringify(response.data.user));
     
   },
   updatePassword: async (params) => {
