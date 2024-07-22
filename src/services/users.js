@@ -22,39 +22,29 @@ const UsersService = {
   },
   
   logout: () => {
-    localStorage.removeItem("user", null);
-    localStorage.removeItem("token", null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   },
   update: async (params) => {
     const response = await Api.put("/users", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    const newUser = response.data
-    const newToken = response.data && response.data.token
-    if(newUser){
-    localStorage.setItem("user", JSON.stringify(newUser));}
-    if(newToken){
-      localStorage.setItem("token", newToken)
-    }
+    localStorage.setItem("user", JSON.stringify(response.data));
   },
   updatePassword: async (params) => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      throw new Error('No token found');
-    }
-  
-    try {
-      const response = await Api.put("/users/password", params, {
-        headers: { "x-access-token": token },
-      });
-      const newToken = response.data && response.data.token;
-      if (newToken) {
-        localStorage.setItem("token", newToken);
-      }
-    } catch (error) {
-      console.error('Update password failed', error.response ? error.response.data : error.message);
-      throw new Error('Update password failed');
-    }
+  if (!token) {
+    throw new Error('No token found');
+  }
+
+  try {
+    await Api.put("/users/password", params, {
+      headers: { "x-access-token": token },
+    });
+  } catch (error) {
+    console.error('Update password failed', error.response ? error.response.data : error.message);
+    throw new Error('Update password failed');
+  }
   },
   delete: async () => {
     let token = localStorage.getItem("token");
