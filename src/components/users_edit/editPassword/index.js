@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import UsersService from "../../../services/users";
-import { Columns, Form, Button } from 'react-bulma-components';
+import { Columns, Form, Button, Notification } from 'react-bulma-components';
 
 function UsersEditFormPassword() {
   const [password, setPassword] = useState("");
@@ -62,13 +62,14 @@ function UsersEditFormPassword() {
           </Form.Control>
         </Form.Field>
         {status === "error_update" && (
-          <Form.Help color="danger">Problem in password update</Form.Help>
+          <Notification color="danger" message="Problem in password update" />
         )}
+
         {status === "error_confirmation_password" && (
-          <Form.Help color="danger">Password don't match</Form.Help>
+          <Notification color="danger" message="Password don't match" />
         )}
         {status === "success" && (
-          <Form.Help color="primary">Updated with success</Form.Help>
+          <Notification color="primary" message="Updated with success" />
         )}
       </form>
     </Fragment>
