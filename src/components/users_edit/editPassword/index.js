@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import UsersService from "../../../services/users";
 import { Columns, Form, Button } from 'react-bulma-components';
 
@@ -21,6 +21,16 @@ function UsersEditFormPassword() {
       setStatus("error_confirmation_password");
     }
   };
+
+  useEffect(() => {
+    let timer;
+    if (status) {
+      timer = setTimeout(() => {
+        setStatus(null); // Clear status after 3 seconds
+      }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    return () => clearTimeout(timer); // Cleanup timer on component unmount
+  }, [status]);
 
     return (
     <Fragment>
