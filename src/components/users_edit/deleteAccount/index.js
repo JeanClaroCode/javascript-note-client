@@ -11,8 +11,8 @@ function UsersDelete() {
       console.log("apertou");
 
       try {
-        await UsersService.delete();
-        setRedirectToHome(true);
+        let teste = await UsersService.delete();
+        if(teste){setRedirectToHome(true);}
       } catch (error) {
         alert('Erro ao excluir a conta. Tente novamente mais tarde.');
       }
